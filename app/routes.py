@@ -1,12 +1,6 @@
 from flask import Flask, request, render_template, redirect
-from models import Band, Video
-
-app = Flask(__name__)
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 from app import app, db
-#importy niby na początku, ale... ten 'myk' zapobiega circular imports
+from app.models import Band, Video
 
 @app.route("/")
 def video_list():
